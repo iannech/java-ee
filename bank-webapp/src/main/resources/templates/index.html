@@ -8,7 +8,7 @@
 		<div class="main-center">
 			<div class="row">
 				<div class="bg-danger" th:if="${param.error}">Invalid username
-					and secret.</div>
+					or password.</div>
 				<form class="form-signin" th:action="@{/index}" method="post">
 					<h2 class="form-signin-heading">Please sign in</h2>
 					<div class="form-group">
