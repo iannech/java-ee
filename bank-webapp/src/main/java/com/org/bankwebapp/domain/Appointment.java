@@ -2,14 +2,26 @@ package com.org.bankwebapp.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Appointment {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Date date;
 	private String desription;
 	private String location;
 	private boolean confirmed;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id") // to reference to a user
 	private User user;
 	
 	public Long getId() {
@@ -47,6 +59,11 @@ public class Appointment {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	@Override
+	public String toString() {
+		return "Appointment [id=" + id + ", date=" + date + ", desription=" + desription + ", location=" + location
+				+ ", confirmed=" + confirmed + ", user=" + user + "]";
 	}
 	
 	
